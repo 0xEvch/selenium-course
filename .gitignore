@@ -1,3 +1,4 @@
 chromedriver.exe
 guru99/credentials.py
 selenium_env/
+__pycache__/
