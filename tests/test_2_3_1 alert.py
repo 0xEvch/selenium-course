@@ -10,19 +10,19 @@ def calc(x):
 service = Service("./chromedriver.exe")
 driver = webdriver.Chrome(service=service)
 try:
-  driver.get("https://suninjuly.github.io/get_attribute.html")
+  driver.get("https://suninjuly.github.io/alert_accept.html")
 
-  attribute = driver.find_element(By.ID, "treasure")
-  x = attribute.get_attribute("valuex")
+  start = driver.find_element(By.CLASS_NAME, "btn")
+  start.click()
+
+  alert = driver.switch_to.alert
+  alert.accept()
+
+  x = driver.find_element(By.ID, "input_value")
+  x = x.text
   
   result = driver.find_element(By.ID, "answer")
   result.send_keys(calc(x))
-
-  checkbot = driver.find_element(By.ID, "robotCheckbox")
-  checkbot.click()
-
-  radiobot = driver.find_element(By.ID, "robotsRule")
-  radiobot.click()
 
   button = driver.find_element(By.CLASS_NAME, "btn")
   button.click()
