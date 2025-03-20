@@ -22,3 +22,14 @@ class ProductPage(BasePage):
         added_book_price = self.browser.find_element(*ProductPageLocators.ADDED_BOOK_PRICE).text
 
         assert book_price == added_book_price, "Book price not match"
+
+    def should_not_show_element(self):
+        result = self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+        
+        assert result, "Element showed"
+
+    def should_be_disappeared(self):
+        result = self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
+        
+        assert result, "Element appeared"
+    
